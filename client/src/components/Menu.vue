@@ -11,22 +11,10 @@
                 </v-toolbar>
                 <v-container grid-list-xs>
                     <v-layout row wrap>
-                        <v-flex xs4 v-for="item in menu" :key="item.id">
-                            <v-card class="pa-2 ma-1" 
-                            height="250px">
-                                <v-img
-                                    :src="loadImg(item.src)"
-                                    height="150px"
-                                >                                    
-                                </v-img>
-                                <v-card-title primary-title>
-                                    <v-spacer></v-spacer>
-                                    <div>
-                                        <div class="headline">{{item.type}}</div>
-                                    </div>
-                                    <v-spacer></v-spacer>
-                                </v-card-title>
-                            </v-card>
+                        <v-flex xs4 v-for="i in menu" :key="i.id">
+                            <cards 
+                            :item="i" 
+                            :imgPath="loadImg(i.src)"></cards> 
                         </v-flex>
                     </v-layout>                    
                 </v-container>
@@ -36,16 +24,20 @@
 </template>
 
 <script>
-import Menu from "@/data/GridMenu";
+import Menu from "@/data/GridMenu"
+import Cards from '@/components/Cards.vue'
 export default {
   data() {
     return {
       menu: Menu
-    };
+    }
+  },
+  components: {
+    Cards,
   },
   methods: {
-    loadImg(img) {
-      return require("../assets/img/grid-menu/" + img);
+     loadImg(img) {
+      return require("@/assets/img/grid-menu/" + img);
     }
   }
 };

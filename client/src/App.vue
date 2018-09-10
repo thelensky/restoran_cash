@@ -1,9 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <v-app id="inspire">
+      <header-page/>
+      <v-container fluid>
+          <router-view></router-view>
+      </v-container>
+    </v-app>
   </div>
 </template>
+
+<script>
+  import HeaderPage from '@/components/Header.vue'
+  import Menu from '@/components/Menu.vue'
+  
+  export default {
+    components: {
+      HeaderPage,
+      Menu
+    }
+  }
+</script>

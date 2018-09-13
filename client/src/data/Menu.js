@@ -30,21 +30,13 @@ const Menu = [
         src: 'shuba.jpg',
         price: 70,
         kind: 'salat'
-    },
+    },   
     {
         id: 5,
         name: 'Чай',
         type: 'hot',
         src: 'tea.jpg',
-        price: 30,
-        kind: 'drink'
-    },
-    {
-        id: 5,
-        name: 'Чай',
-        type: 'hot',
-        src: 'tea.jpg',
-        price: 30,
+        price: 20,
         kind: 'drink'
     },
     {
@@ -52,9 +44,74 @@ const Menu = [
         name: 'Компот',
         type: 'cold',
         src: 'compot.jpg',
-        price: 30,
+        price: 20,
         kind: 'drink'
     },
+    {
+        id: 7,
+        name: 'Пряники',
+        type: 'cold',
+        src: 'cake.jpg',
+        price: 30,
+        kind: 'cookies'
+    },
+    {
+        id: 8,
+        name: 'Пирог с яблоками',
+        type: 'hot',
+        src: 'pie-aple.jpg',
+        price: 40,
+        kind: 'cookies'
+    },
+    {
+        id: 9,
+        name: 'Горбуша соленая',
+        type: 'cold',
+        src: 'salmon.jpg',
+        price: 90,
+        kind: 'fish'
+    },
+    {
+        id: 10,
+        name: 'Сом запеченный',
+        type: 'hot',
+        src: 'catfish.jpg',
+        price: 70,
+        kind: 'fish'
+    },
+    {
+        id: 11,
+        name: 'Шашлык свиной',
+        type: 'hot',
+        src: 'kebab.jpg',
+        price: 200,
+        kind: 'meal'
+    },
+    {
+        id: 12,
+        name: 'Гуляш',
+        type: 'hot',
+        src: 'gulyash.jpg',
+        price: 80,
+        kind: 'meal'
+    },
+    {
+        id: 13,
+        name: 'Гречка',
+        type: 'hot',
+        src: 'buckwheat.jpg',
+        price: 40,
+        kind: 'garnig'
+    },
+    {
+        id: 14,
+        name: 'Макароны',
+        type: 'hot',
+        src: 'macaroni.jpg',
+        price: 30,
+        kind: 'garnir'
+    },
+
 ]
 
 export default Menu

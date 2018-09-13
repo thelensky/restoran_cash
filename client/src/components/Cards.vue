@@ -9,7 +9,7 @@
         <v-card-title primary-title>
             <v-spacer></v-spacer>
             <div>
-                <div class="headline">{{item.type}}</div>
+                <div class="headline">{{header}}</div>
             </div>
             <v-spacer></v-spacer>
         </v-card-title>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  props: ['item', 'imgPath']
+  props: ['header', 'imgPath']
 }
 </script>
 

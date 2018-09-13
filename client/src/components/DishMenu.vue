@@ -1,19 +1,19 @@
 <template>
     <v-layout row wrap justify-center>
+        <div 
+        v-for="(item, index) in grid" 
+        :key="index"
+        class="mb-2 mt-0"
+        absolute>
+            <v-btn :color="index === 1 ? inactive : active" >{{item.type}}</v-btn>
+        </div>
         <v-flex xs12 md8>
-            <v-card color="blue lighten-5">
-                <v-toolbar>
-                    <v-spacer></v-spacer>
-                    <v-toolbar-title> 
-                        Меню
-                    </v-toolbar-title> 
-                    <v-spacer></v-spacer>
-                </v-toolbar>
+            <v-card color="blue lighten-5">    
                 <v-container grid-list-xs>
-                    <v-layout row wrap justify-center>
+                    <v-layout row wrap>
                         <v-flex xs4 v-for="i in menu" :key="i.id">
                             <cards 
-                            :header="i.type" 
+                            :header="i.name" 
                             :imgPath="loadImg(i.src)"></cards> 
                         </v-flex>
                     </v-layout>                    
@@ -24,12 +24,16 @@
 </template>
 
 <script>
-import Menu from "@/data/GridMenu"
+import GridMenu from "@/data/GridMenu"
+import Menu from "@/data/Menu"
 import Cards from '@/components/Cards.vue'
 export default {
   data() {
     return {
-      menu: Menu
+      menu: Menu,
+      grid: GridMenu,
+      active: 'blue lighten-5',
+      inactive: 'blue lighten-10'
     }
   },
   components: {
@@ -37,11 +41,17 @@ export default {
   },
   methods: {
     loadImg(img) {
-      return require("@/assets/img/grid-menu/" + img);
+      return require("@/assets/img/menu/" + img);
     }
+  },
+  computed: {
+      
   }
 };
 </script>
 
 <style>
+.active {
+  color: red;
+}
 </style>

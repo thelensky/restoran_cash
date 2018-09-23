@@ -12,9 +12,12 @@
                 <v-container grid-list-xs>
                     <v-layout row wrap justify-center>
                         <v-flex xs4 v-for="i in menu" :key="i.id">
-                            <cards 
-                            :header="i.type" 
-                            :imgPath="loadImg(i.src)"></cards> 
+                            <div v-on:click="goToPath(`/menu/${i.kind}`)">
+                                <cards 
+                                :header="i.type" 
+                                :imgPath="loadImg(i.src)"
+                                ></cards>
+                            </div>
                         </v-flex>
                     </v-layout>                    
                 </v-container>
@@ -38,6 +41,9 @@ export default {
   methods: {
     loadImg(img) {
       return require("@/assets/img/grid-menu/" + img);
+    },
+    goToPath(go){
+        this.$router.push({path: go})
     }
   }
 };

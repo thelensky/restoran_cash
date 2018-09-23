@@ -19,7 +19,7 @@ export default new Router({
       component: Menu,
     },
     {
-      path: '/menu/dish',
+      path: '/menu/:dish',
       name: 'dish',
       component: DishMenu,
     },

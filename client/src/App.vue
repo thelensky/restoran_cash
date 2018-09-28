@@ -20,3 +20,7 @@
     }
   }
 </script>
+
+<style>
+@import url("https://cdn.jsdelivr.net/npm/animate.css@3.5.1");
+</style>

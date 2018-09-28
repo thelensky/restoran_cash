@@ -10,7 +10,9 @@
                     <v-spacer></v-spacer>
                 </v-toolbar>
                 <v-container grid-list-xs>
-                    <v-layout row wrap justify-center>
+                    <transition-group tag="div" class="custom-v-layout" name="list" appear
+                    appear-class="custom-appear-class"
+                    appear-active-class="animated zoomIn">
                         <v-flex xs4 v-for="i in menu" :key="i.id">
                             <div v-on:click="goToPath(`/menu/${i.kind}`)">
                                 <cards 
@@ -19,7 +21,7 @@
                                 ></cards>
                             </div>
                         </v-flex>
-                    </v-layout>                    
+                    </transition-group>
                 </v-container>
             </v-card>
         </v-flex>
@@ -27,27 +29,57 @@
 </template>
 
 <script>
-import Menu from "@/data/GridMenu"
-import Cards from '@/components/Cards.vue'
+import Menu from "@/data/GridMenu";
+import Cards from "@/components/Cards.vue";
 export default {
   data() {
     return {
       menu: Menu
-    }
+    };
   },
   components: {
-    Cards,
+    Cards
   },
   methods: {
     loadImg(img) {
       return require("@/assets/img/grid-menu/" + img);
     },
-    goToPath(go){
-        this.$router.push({path: go})
+    goToPath(go) {
+      this.$router.push({ path: go });
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
+.custom-v-layout {
+  margin: -1px;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  background-repeat: no-repeat;
+  padding: 0;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s;
+}
+
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
 </style>

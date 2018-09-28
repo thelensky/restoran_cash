@@ -1,31 +1,42 @@
 <template>
-    <v-container grid-list-xs>
-        <v-layout row wrap>
-            <v-flex xs4 v-for="i in incomming" :key="i.id">
+    <v-container grid-list-xs class="mb-2">
+      <v-layout row wrap>
+        
+      
+        <transition-group tag="div" class="custom-v-layout" name="list" appear
+                    appear-class="custom-appear-class"
+                    appear-active-class="animated zoomIn">
+            <v-flex xs4 v-for="(i,index) in incomming" :key="index">
                 <div @click="difineOrderShow(i)">
                     <cards 
                     :header="i.name" 
                     :imgPath="loadImg(i.src)"></cards>
                 </div> 
             </v-flex>
-            <v-flex xs12 v-if="orderShow && isShow">
-                <div class="my-container mx-1">
-                    <div class="box">
-                        <h3>Описание</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolorum deleniti voluptates? Dolorum sunt vel tempore inventore doloremque, voluptate delectus neque voluptatem atque vero. Consectetur quibusdam at magni similique itaque.</p>
-                    </div>
-                    <div class="box">
-                        <h3>Энергетическая ценность</h3>
-                        <ul>
-                            <li v-for="(item, index) in orderShow.energyValue" :key="index">
-                                {{item}}
-                            </li>
-                        </ul>
-                    </div>
-                    <img :src="loadImg(orderShow.src)">
-                </div>
-            </v-flex>
-        </v-layout>      
+            </transition-group> 
+            <transition name="custom-classes-transition"
+            enter-active-class="animated zoomIn"
+            leave-active-class="animated zoomOut">
+              <v-flex xs12 v-if="orderShow && isShow">
+                  <div class="my-container mx-1">
+                      <div class="box">
+                          <h3>Описание</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolorum deleniti voluptates? Dolorum sunt vel tempore inventore doloremque, voluptate delectus neque voluptatem atque vero. Consectetur quibusdam at magni similique itaque.</p>
+                      </div>
+                      <div class="box">
+                          <h3>Энергетическая ценность</h3>
+                          <ul>
+                              <li v-for="(item, index) in orderShow.energyValue" :key="index">
+                                  {{item}}
+                              </li>
+                          </ul>
+                      </div>
+                      <img :src="loadImg(orderShow.src)">
+                  </div>
+              </v-flex>
+            </transition>
+    
+        </v-layout>    
     </v-container>
 </template>
 
@@ -36,31 +47,34 @@ export default {
   data() {
     return {
       menu: Menu,
-      orderShow: null,
+      orderShow: null
     };
   },
   components: {
     Cards
   },
-  props: ["incomming","index","indexOwner"],
+  props: ["incomming", "index", "indexOwner"],
   methods: {
     loadImg(img) {
       return require("@/assets/img/menu/" + img);
     },
     difineOrderShow(obj) {
-      this.orderShow = obj;
-      this.$emit("show", this.index);
+      this.orderShow = null;
+      setTimeout(() => {
+        this.orderShow = obj;
+        this.$emit("show", this.index);
+      }, 100);
     }
   },
   computed: {
-    isShow(){  
-      return this.index === this.indexOwner
+    isShow() {
+      return this.index === this.indexOwner;
     }
   },
   watch: {
     $route() {
       this.$emit("show", null);
-    },
+    }
   }
 };
 </script>
@@ -93,5 +107,24 @@ export default {
 }
 .box h3 {
   text-align: center;
+}
+.custom-v-layout {
+  margin: -1px;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  background-repeat: no-repeat;
+  padding: 0;
 }
 </style>

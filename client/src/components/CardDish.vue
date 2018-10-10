@@ -3,10 +3,11 @@
       <v-layout row wrap>
         
       
-        <transition-group tag="div" class="custom-v-layout" name="list" appear
-                    appear-class="custom-appear-class"
-                    appear-active-class="animated zoomIn">
-            <v-flex xs4 v-for="(i,index) in incomming" :key="index">
+        <transition-group tag="div" class="custom-v-layout" 
+        appear
+        appear-class="custom-appear-class"
+        appear-active-class="animated zoomIn"> 
+            <v-flex xs4 v-for="(i,index) in incomming" :key="i.name + index">
                 <div @click="difineOrderShow(i)">
                     <cards 
                     :header="i.name" 
@@ -14,9 +15,11 @@
                 </div> 
             </v-flex>
             </transition-group> 
-            <transition name="custom-classes-transition"
-            enter-active-class="animated zoomIn"
-            leave-active-class="animated zoomOut">
+            <transition name="dish"
+            v-bind:css="false"
+            v-on:before-enter="beforeEnter"
+            v-on:enter="enter"
+            v-on:leave="leave">
               <v-flex xs12 v-if="orderShow && isShow">
                   <div class="my-container mx-1">
                       <div class="box">
@@ -32,6 +35,9 @@
                           </ul>
                       </div>
                       <img :src="loadImg(orderShow.src)">
+                       <v-btn icon class="close-btn" @click="closeFrame">
+                        <v-icon>close</v-icon>
+                      </v-btn>
                   </div>
               </v-flex>
             </transition>
@@ -41,6 +47,7 @@
 </template>
 
 <script>
+import Vilocity from 'velocity-animate'
 import Menu from "@/data/Menu";
 import Cards from "@/components/Cards.vue";
 export default {
@@ -59,12 +66,30 @@ export default {
       return require("@/assets/img/menu/" + img);
     },
     difineOrderShow(obj) {
+      if(this.orderShow === obj){
+        this.orderShow = null
+      }
+      else{
+        this.orderShow = null
+        setTimeout(() => {
+          this.orderShow = obj;
+          this.$emit("show", this.index);
+        }, 100);
+      }
+    },
+    closeFrame(){
       this.orderShow = null;
-      setTimeout(() => {
-        this.orderShow = obj;
-        this.$emit("show", this.index);
-      }, 100);
-    }
+    },
+    beforeEnter: function (el) {
+      el.style.overflow = 'hidden'
+      el.style.height = '0px'
+    },
+    enter: function (el, done) {
+      Vilocity(el, {height: '350px'}, {duration: 500}, {complete: done})
+    },
+    leave: function (el, done) {
+      Vilocity(el, {height: '0px'}, {duration: 500}, {complete: done})
+    },
   },
   computed: {
     isShow() {
@@ -126,5 +151,11 @@ export default {
   min-width: 0;
   background-repeat: no-repeat;
   padding: 0;
+}
+.close-btn{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 2;
 }
 </style>

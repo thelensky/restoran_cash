@@ -11,7 +11,7 @@
         </div>
         <v-flex xs12 md8>
             <v-card color="blue lighten-5" 
-            v-for="(item, index) in listForPage" :key="index">    
+            v-for="(item, index) in listForPage" :key="index + $route.params.dish">
                 <card-dish 
                 v-on:show="shows($event)"
                 :index="index"

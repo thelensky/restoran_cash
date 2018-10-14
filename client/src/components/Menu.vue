@@ -32,8 +32,8 @@
 import Cards from "@/components/Cards.vue";
 export default {
   beforeCreate() {
-    if( !this.$store.state.menu ){
-      this.$store.dispatch('loadMenu')
+    if( !this.$store.state.gridMenu ){
+      this.$store.dispatch('loadGridMenu')
     }
   },
   components: {
@@ -49,7 +49,7 @@ export default {
   },
   computed:{
     menu(){
-      return this.$store.state.menu
+      return this.$store.state.gridMenu
     }
   }
 };

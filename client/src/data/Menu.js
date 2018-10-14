@@ -1,5 +1,6 @@
 const Menu = [
     {
+        show: true,
         name: 'Борщь',
         type: 'hot',
         src: 'borsh.jpg',
@@ -15,6 +16,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Солянка',
         type: 'hot',
         src: 'solyanka.jpg',
@@ -30,6 +32,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Оливье',
         type: 'cold',
         src: 'olivie.jpg',
@@ -45,6 +48,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Сельдь под шубой',
         type: 'cold',
         src: 'shuba.jpg',
@@ -60,6 +64,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Чай',
         type: 'hot',
         src: 'tea.jpg',
@@ -75,6 +80,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Компот',
         type: 'cold',
         src: 'compot.jpg',
@@ -90,6 +96,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Пряники',
         type: 'cold',
         src: 'cake.jpg',
@@ -105,6 +112,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Пирог с яблоками',
         type: 'hot',
         src: 'pie-aple.jpg',
@@ -120,6 +128,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Горбуша соленая',
         type: 'cold',
         src: 'salmon.jpg',
@@ -135,6 +144,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Сом запеченный',
         type: 'hot',
         src: 'catfish.jpg',
@@ -150,6 +160,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Шашлык свиной',
         type: 'hot',
         src: 'kebab.jpg',
@@ -165,6 +176,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Гуляш',
         type: 'hot',
         src: 'gulyash.jpg',
@@ -180,6 +192,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Гречка',
         type: 'hot',
         src: 'buckwheat.jpg',
@@ -195,6 +208,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Макароны',
         type: 'hot',
         src: 'macaroni.jpg',
@@ -210,6 +224,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Борщь',
         type: 'hot',
         src: 'borsh.jpg',
@@ -225,6 +240,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Солянка',
         type: 'hot',
         src: 'solyanka.jpg',
@@ -240,6 +256,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Оливье',
         type: 'cold',
         src: 'olivie.jpg',
@@ -255,6 +272,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Сельдь под шубой',
         type: 'cold',
         src: 'shuba.jpg',
@@ -270,6 +288,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Чай',
         type: 'hot',
         src: 'tea.jpg',
@@ -285,6 +304,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Компот',
         type: 'cold',
         src: 'compot.jpg',
@@ -300,6 +320,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Пряники',
         type: 'cold',
         src: 'cake.jpg',
@@ -315,6 +336,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Пирог с яблоками',
         type: 'hot',
         src: 'pie-aple.jpg',
@@ -330,6 +352,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Горбуша соленая',
         type: 'cold',
         src: 'salmon.jpg',
@@ -345,6 +368,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Сом запеченный',
         type: 'hot',
         src: 'catfish.jpg',
@@ -360,6 +384,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Шашлык свиной',
         type: 'hot',
         src: 'kebab.jpg',
@@ -375,6 +400,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Гуляш',
         type: 'hot',
         src: 'gulyash.jpg',
@@ -390,6 +416,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Гречка',
         type: 'hot',
         src: 'buckwheat.jpg',
@@ -405,6 +432,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Макароны',
         type: 'hot',
         src: 'macaroni.jpg',
@@ -420,6 +448,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Борщь',
         type: 'hot',
         src: 'borsh.jpg',
@@ -435,6 +464,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Солянка',
         type: 'hot',
         src: 'solyanka.jpg',
@@ -450,6 +480,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Оливье',
         type: 'cold',
         src: 'olivie.jpg',
@@ -465,6 +496,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Сельдь под шубой',
         type: 'cold',
         src: 'shuba.jpg',
@@ -480,6 +512,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Чай',
         type: 'hot',
         src: 'tea.jpg',
@@ -495,6 +528,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Компот',
         type: 'cold',
         src: 'compot.jpg',
@@ -510,6 +544,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Пряники',
         type: 'cold',
         src: 'cake.jpg',
@@ -525,6 +560,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Пирог с яблоками',
         type: 'hot',
         src: 'pie-aple.jpg',
@@ -540,6 +576,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Горбуша соленая',
         type: 'cold',
         src: 'salmon.jpg',
@@ -555,6 +592,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Сом запеченный',
         type: 'hot',
         src: 'catfish.jpg',
@@ -570,6 +608,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Шашлык свиной',
         type: 'hot',
         src: 'kebab.jpg',
@@ -585,6 +624,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Гуляш',
         type: 'hot',
         src: 'gulyash.jpg',
@@ -600,6 +640,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Гречка',
         type: 'hot',
         src: 'buckwheat.jpg',
@@ -615,6 +656,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Гречка',
         type: 'hot',
         src: 'buckwheat.jpg',
@@ -630,6 +672,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Гречка',
         type: 'hot',
         src: 'buckwheat.jpg',
@@ -645,6 +688,7 @@ const Menu = [
         }
     },
     {
+        show: true,
         name: 'Макароны',
         type: 'hot',
         src: 'macaroni.jpg',

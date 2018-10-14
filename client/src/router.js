@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/views/Home.vue'
 import Menu from '@/components/Menu.vue'
 import DishMenu from '@/components/DishMenu.vue'
+import Basket from '@/components/Basket.vue'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export default new Router({
       path: '/menu',
       name: 'menu',
       component: Menu,
+    },
+    {
+      path: '/basket',
+      name: 'basket',
+      component: Basket,
     },
     {
       path: '/menu/:dish',

@@ -29,13 +29,12 @@
 </template>
 
 <script>
-import Menu from "@/data/GridMenu";
 import Cards from "@/components/Cards.vue";
 export default {
-  data() {
-    return {
-      menu: Menu
-    };
+  beforeCreate() {
+    if( !this.$store.state.menu ){
+      this.$store.dispatch('loadMenu')
+    }
   },
   components: {
     Cards
@@ -46,6 +45,11 @@ export default {
     },
     goToPath(go) {
       this.$router.push({ path: go });
+    }
+  },
+  computed:{
+    menu(){
+      return this.$store.state.menu
     }
   }
 };

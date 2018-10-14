@@ -9,7 +9,8 @@
             :color="item.kind === $route.params.dish ? inactive : active"
             @click="goToPath(`/menu/${item.kind}`)" >{{item.type}}</v-btn>
         </div>
-        <v-flex xs12 md8>
+        <v-flex xs12 md8 
+        v-if="this.$store.state.menu">
             <v-card color="blue lighten-5" 
             v-for="(item, index) in listForPage" :key="index + $route.params.dish">
                 <card-dish 
@@ -23,18 +24,24 @@
 </template>
 
 <script>
-import GridMenu from "@/data/GridMenu";
-import Menu from "@/data/Menu";
 import CardDish from "@/components/CardDish.vue";
 export default {
   data() {
     return {
-      menu: Menu,
-      grid: GridMenu,
       active: "blue lighten-5",
       inactive: "blue lighten-10",
       owner: null,
     };
+  },
+  beforeCreate() {
+    if( !this.$store.state.menu ){
+      this.$store.dispatch('loadMenu')
+    }
+    // Test mode loadMenu
+    if( !this.$store.state.gridMenu ){
+      this.$store.dispatch('loadGridMenu')
+
+    }
   },
   components: {
     CardDish
@@ -49,7 +56,7 @@ export default {
   },
   computed: {
     listForPage() {
-      const sotrArr = this.menu.filter(
+      const sotrArr = this.$store.state.menu.filter(
         item => item.kind === this.$route.params.dish
       );
       let i,
@@ -60,6 +67,9 @@ export default {
         tempArr.push(sotrArr.slice(i, i + piece));
       }
       return tempArr;
+    },
+    grid() {
+      return this.$store.state.gridMenu
     }
   }
 };

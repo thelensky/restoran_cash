@@ -15,7 +15,7 @@
                 </div> 
             </v-flex>
             </transition-group> 
-            <transition name="dish"
+            <transition
             v-bind:css="false"
             v-on:before-enter="beforeEnter"
             v-on:enter="enter"

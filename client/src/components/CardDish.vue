@@ -34,6 +34,17 @@
                               </li>
                           </ul>
                       </div>
+                      <div class="box-center">
+                        <v-btn flat icon color="primary"
+                        @click="addOne(orderShow)">
+                          <v-icon>add_circle_outline</v-icon>
+                        </v-btn>
+                        <span>{{itemsInCart}}</span>
+                        <v-btn flat icon color="primary"
+                        @click="removeOne(orderShow)">
+                          <v-icon>remove_circle_outline</v-icon>
+                        </v-btn>
+                      </div>
                       <img :src="loadImg(orderShow.src)">
                        <v-btn icon class="close-btn" @click="closeFrame">
                         <v-icon>close</v-icon>
@@ -48,12 +59,10 @@
 
 <script>
 import Vilocity from 'velocity-animate'
-import Menu from "@/data/Menu";
 import Cards from "@/components/Cards.vue";
 export default {
   data() {
     return {
-      menu: Menu,
       orderShow: null
     };
   },
@@ -77,6 +86,12 @@ export default {
         }, 100);
       }
     },
+    addOne(obj) {
+      this.$store.dispatch('addGoods', obj)
+    },
+    removeOne(obj) {
+      this.$store.dispatch('removeGoods', obj)
+    },
     closeFrame(){
       this.orderShow = null;
     },
@@ -94,6 +109,9 @@ export default {
   computed: {
     isShow() {
       return this.index === this.indexOwner;
+    },
+    itemsInCart(){   
+      return this.$store.getters['itemsInCart'](this.orderShow)
     }
   },
   watch: {
@@ -130,6 +148,14 @@ export default {
   margin: 0;
   height: 100%;
 }
+.box-center {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+},
 .box h3 {
   text-align: center;
 }

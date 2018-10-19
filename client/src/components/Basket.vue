@@ -2,24 +2,12 @@
     <v-layout row wrap justify-center class="mb-5">
         <v-flex xs8 lg6>
             <table>
-                <tr v-for="(item, index) in menu" :key="index">
-                    <td>{{item.name}}</td>
-                    <td @mouseover="item.show = !item.show"
-                        @mouseout="item.show = !item.show" :key="index">
-                        <v-btn icon
-                        class="ma-0 pa-0" 
-                        v-show="item.show">
-                            <v-icon class="ma-0 pa-0">add_circle_outline</v-icon>
-                        </v-btn>
-                        <span class="mx-1">1</span>
-                        <v-btn icon
-                        class="ma-0 pa-0" 
-                        v-show="item.show">
-                            <v-icon class="ma-0 pa-0">remove_circle_outline</v-icon>
-                        </v-btn>
-                    </td>
-                    <td>{{item.price}} р.</td>
-                </tr>
+                <tr 
+                is="TabelData"
+                v-for="(item, index) in cart"
+                :key="index"
+                :entity="Object.values(item)[0]"
+                :value="Object.keys(item)[0]"></tr>
                 <tr>
                     <td colspan="2"> Итого к оплате: </td>
                     <td  class="total">{{totalPrice}} р.</td>
@@ -30,23 +18,20 @@
 </template>
 
 <script>
-import Menu from "@/data/Menu";
+import TabelData from "@/components/TabelData.vue";
 
 export default {
-    data(){
-        return {
-            // menu fill facke data. In fueteru
-            menu: Menu.slice(0,4).map((i) => {
-                i.show = false
-                return i
-            }),
-        }
-    },
     computed: {
         totalPrice(){
-            return this.menu.reduce((total, item) => total + item.price, 0)
+            return this.$store.getters.totalPrice
         },
+        cart() {
+            return this.$store.state.shopCart
+        }
     },
+    components: {
+        TabelData
+    }
 }
 </script>
 

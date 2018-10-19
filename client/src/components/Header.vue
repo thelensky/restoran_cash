@@ -17,7 +17,7 @@
     class="mr-5 "
     @click="goToPath('basket')">
       <v-badge color="primary">
-        <span slot="badge">4</span> <!--slot can be any component-->
+        <span slot="badge" v-if="sumGoods > 0">{{sumGoods}}</span> <!--slot can be any component-->
         <v-icon large color="primary">local_grocery_store</v-icon>
       </v-badge>
     </v-btn>
@@ -40,6 +40,9 @@ export default {
   computed: {
     user(){      
       return this.$store.state.user ? this.$store.state.user : ''
+    },
+    sumGoods(){
+      return this.$store.getters.sumParches
     }
   }
 }
